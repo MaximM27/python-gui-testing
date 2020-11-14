@@ -1,4 +1,4 @@
-from random import randrange
+import random
 
 
 def test_add_group(app):
@@ -6,8 +6,8 @@ def test_add_group(app):
         app.groups.add_new_group("my group")
     old_list = app.groups.get_group_list()
     print(old_list)
-    index = randrange(1, len(old_list))
-    group = old_list[index]
+    group = random.choice(old_list)
+    index = old_list.index(group)
     print(group)
     app.groups.delete_group(index)
     new_list = app.groups.get_group_list()
